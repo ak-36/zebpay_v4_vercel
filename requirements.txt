@@ -1,0 +1,6 @@
+Flask
+openai
+llama-index
+llama-index-embeddings-huggingface
+requests
+doc2txt
