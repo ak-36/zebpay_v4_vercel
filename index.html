@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ZebPay Chatbot</title>
+</head>
+<body>
+    <h1>ZiVa💬🦙</h1>
+    <input type="text" id="userInput" placeholder="Enter your question">
+    <button onclick="processInput()">Submit</button>
+    <p id="response"></p>
+
+    <script>
+        async function processInput() {
+            const userInput = document.getElementById('userInput').value;
+            const response = await fetch('/process', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ input: userInput })
+            });
+            const data = await response.json();
+            document.getElementById('response').innerText = data.response;
+        }
+    </script>
+</body>
+</html>
