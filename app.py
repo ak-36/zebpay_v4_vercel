@@ -8,10 +8,11 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.openai import OpenAI
 from llama_index.core.tools import FunctionTool
 from llama_index.agent.openai import OpenAIAgent
+import os
 
 app = Flask(__name__)
 
-openai.api_key = "your_openai_api_key"
+openai.api_key = os.environ.get('openai_key')
 
 llm = OpenAI(model="gpt-4", temperature=0.1)
 embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-base-en-v1.5")
